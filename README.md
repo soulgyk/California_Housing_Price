@@ -15,5 +15,13 @@ Install requirements
 
 pip install -r requirements.txt
 
+GIT Clone 
+
+git config --global user.name ""
+git config --global user.mail ""
+git add.
+git status
+git commit -m "message"
+git push origin main
 
 
