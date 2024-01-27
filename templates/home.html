@@ -1,3 +1,87 @@
-<h1>
-Hello World
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #prediction {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>House Price Prediction Form</h2>
+
+    <form action="{{ url_for('predict')}}" method="post">
+        <label for="medInc">MedInc:</label>
+        <input type="text" id="medInc" name="medInc" required>
+
+        <label for="houseAge">HouseAge:</label>
+        <input type="text" id="houseAge" name="houseAge" required>
+
+        <label for="aveRooms">AveRooms:</label>
+        <input type="text" id="aveRooms" name="aveRooms" required>
+
+        <label for="aveBedrms">AveBedrms:</label>
+        <input type="text" id="aveBedrms" name="aveBedrms" required>
+
+        <label for="population">Population:</label>
+        <input type="text" id="population" name="population" required>
+
+        <label for="aveOccup">AveOccup:</label>
+        <input type="text" id="aveOccup" name="aveOccup" required>
+
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" name="latitude" required>
+
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" name="longitude" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <div id="prediction">
+        {% if prediction_text %}
+            {{ prediction_text }}
+        {% endif %}
+    </div>
+
+</body>
+</html>
